@@ -1,5 +1,10 @@
 module Deprecatable
 
+  def self.deprecate_attribute cl, attr
+    @@deprecated_attributes ||=[]
+    @@deprecated_attributes << attr.to_s
+    overide_accessors cl,attr
+  end
 
   # ensure the deprecated attributes will be skip when serialize the record
   def serializable_hash(options={})
@@ -10,11 +15,11 @@ module Deprecatable
     super(options)
   end
 
-  def self.overide_accessors attr
+  def self.overide_accessors cl, attr
     msg = "You can't access atribute #{attr}, it has been deprecated"
     [ '', '=', '?', '_changed?'].each do |term|
-      define_method("#{attr}#{term}") do |e=nil|
-        raise RuntimeError, msg 
+      cl.send :define_method, "#{attr}#{term}" do |e=nil|
+      raise RuntimeError, msg 
       end
     end
     hack_columns

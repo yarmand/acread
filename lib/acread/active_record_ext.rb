@@ -4,10 +4,8 @@ require 'acread/deprecatable'
 class ActiveRecord::Base
   include Deprecatable
 
-  def self.deprecate_attribute attr
-    @@deprecated_attributes ||=[]
-    @@deprecated_attributes << attr.to_s
-    Deprecatable.overide_accessors attr
+  def self.deprecate_attribute cl, attr
+    Deprecatable::deprecate_attribute cl,attr
   end
 
 

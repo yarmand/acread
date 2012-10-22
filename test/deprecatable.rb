@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
     t.string :name
     t.string :long_name
   end
-  deprecate_attribute :long_name
+  deprecate_attribute self, :long_name
 end
 
 class DeprecatableTest < Test::Unit::TestCase
