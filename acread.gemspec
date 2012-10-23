@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["yann ARMAND"]
   s.date = "2012-10-23"
-  s.description = "TODO: longer description of your gem"
+  s.description = "When you deprecate an attribute, acread can helps you in 3 ways :\n\n1. helps you finding where you are using this attribute by creating glue to raise a `DeprecatedAttributeError`.\n2. ignore this atribute when serializing the object through to_json, to_xml ...\n3. helps your zero downtime migration by ignoring the attribute for objects already in memory when saving to database."
   s.email = "yann@harakys.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "acread.gemspec",
     "lib/acread.rb",
     "lib/acread/active_record_ext.rb",
     "lib/acread/deprecatable.rb",
