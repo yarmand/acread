@@ -1,9 +1,13 @@
 module Deprecatable
 
   def deprecate_attribute attr
-    @@deprecated_attributes ||=[]
-    @@deprecated_attributes << attr.to_s
+    @deprecated_attributes ||=[]
+    @deprecated_attributes << attr.to_s
     overide_accessors attr
+  end
+
+  def deprecated_attributes
+    @deprecated_attributes
   end
 
   def overide_accessors attr
