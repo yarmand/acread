@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'acread'
+require 'helper'
 
 class Person < ActiveRecord::Base
   deprecate_attribute :long_name
@@ -18,7 +17,8 @@ class PersonFull < ActiveRecord::Base
   end
 end
 
-class DeprecatableTest < Test::Unit::TestCase
+
+class TestAcread < Test::Unit::TestCase
   def setup
     @bob = Person.create!(:name => 'bob')
     @james = PersonFull.create(:long_name => 'James the magnific')
@@ -67,5 +67,3 @@ class DeprecatableTest < Test::Unit::TestCase
     assert h.keys.include? 'long_name'
   end
 end
-
-
