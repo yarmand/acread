@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
     t.string :name
     t.string :long_name
   end
-  deprecate_attribute self, :long_name
+  deprecate_attribute :long_name
 end
 
 class DeprecatableTest < Test::Unit::TestCase
@@ -16,15 +16,15 @@ class DeprecatableTest < Test::Unit::TestCase
   end
 
   def test_cretor_with_deprecated_field_raise_exception
-    assert_raise(RuntimeError) { Person.create(:long_name => 'should not see this')    }
+    assert_raise(DeprecatedAttributeError) { Person.create(:long_name => 'should not see this')    }
   end
 
   def test_read_deprecated_raise_exception
-    assert_raise(RuntimeError) { @bob.long_name }
+    assert_raise(DeprecatedAttributeError) { @bob.long_name }
   end
 
   def test_write_deprecated_raise_exception
-    assert_raise(RuntimeError) { @bob.long_name = 'Bon' }
+    assert_raise(DeprecatedAttributeError) { @bob.long_name = 'Bon' }
   end
 
 
