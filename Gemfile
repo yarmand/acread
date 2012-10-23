@@ -1,10 +1,12 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
-gem 'debugger'
+# gem dependencies
+gem 'rails', '>= 3.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
+# dependencies to develop your gem here.
+# Include everything needed to run rake, tests, features, etc.
+group :development do
+  gem "rdoc", ">= 3.12"
+  gem "bundler", ">= 1.0.0"
+  gem "jeweler", ">= 1.8.3"
+end
