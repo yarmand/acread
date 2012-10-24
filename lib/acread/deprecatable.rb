@@ -1,5 +1,7 @@
 module Deprecatable
 
+  ACCESSORS = [ '', '=', '?', '_changed?']
+
   def deprecate_attribute attr
     @deprecated_attributes ||=[]
     @deprecated_attributes << attr.to_s
@@ -10,9 +12,14 @@ module Deprecatable
     @deprecated_attributes
   end
 
+  def accessors
+    # TODO: replace this constant by an ActiveRecord inspection
+    ACCESSORS
+  end
+
   def overide_accessors attr
     msg = "You can't access atribute #{attr}, it has been deprecated"
-    [ '', '=', '?', '_changed?'].each do |term|
+    accessors.each do |term|
       define_method("#{attr}#{term}") do |e=nil|
       raise DeprecatedAttributeError, msg 
       end
