@@ -1,6 +1,6 @@
 module Deprecatable
 
-  ACCESSORS = [ '', '=', '?', '_changed?']
+  ACCESSORS = [ '', '=', '_before_type_cast', '?', '_changed?', '_change', '_will_change!', '_was'] 
 
   def deprecate_attribute attr
     @deprecated_attributes ||=[]
