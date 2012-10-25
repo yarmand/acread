@@ -18,11 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/yarmand/acread"
   gem.license = "MIT"
   gem.summary = %Q{An ActiveRecord Extension to deprecate attributes}
-  gem.description = %Q{When you deprecate an attribute, acread can helps you in 3 ways :
-
-1. helps you finding where you are using this attribute by creating glue to raise a `DeprecatedAttributeError`.
-2. ignore this atribute when serializing the object through to_json, to_xml ...
-3. helps your zero downtime migration by ignoring the attribute for objects already in memory when saving to database.}
+  gem.description = %Q{An ActiveRecord Extension to deprecate attributes}
   gem.email = "yann@harakys.com"
   gem.authors = ["yann ARMAND"]
   # dependencies defined in Gemfile
