@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = "acread"
-  s.version = "0.5.2"
+  s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["yann ARMAND"]
+  s.authors = ["yann ARMAND", "Nick Campbell"]
   s.date = "2012-12-06"
   s.description = "An ActiveRecord Extension to deprecate attributes"
   s.email = "yann@harakys.com"
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/yarmand/acread"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.24"
   s.summary = "An ActiveRecord Extension to deprecate attributes"
 
   if s.respond_to? :specification_version then
