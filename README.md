@@ -73,5 +73,5 @@ Then you can safely follow the steps :
 
 # Copyright
 
-Copyright (c) 2012 yann ARMAND under MIT See LICENSE.txt for
+Copyright (c) 2012 yann ARMAND & Nick Campbell under MIT See LICENSE.txt for
 further details.
