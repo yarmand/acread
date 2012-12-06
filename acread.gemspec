@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "acread"
-  s.version = "0.5.1"
+  s.version = "0.5.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["yann ARMAND"]
-  s.date = "2012-10-25"
+  s.date = "2012-12-06"
   s.description = "An ActiveRecord Extension to deprecate attributes"
   s.email = "yann@harakys.com"
   s.extra_rdoc_files = [
