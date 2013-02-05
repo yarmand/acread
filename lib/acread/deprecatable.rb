@@ -22,6 +22,7 @@ module Deprecatable
     accessors.each do |term|
       define_method("#{attr}#{term}") do |*args|
         raise DeprecatedAttributeError, msg
+        super
       end
     end
   end
