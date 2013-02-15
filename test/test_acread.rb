@@ -25,17 +25,27 @@ class TestAcread < Test::Unit::TestCase
   end
 
   def test_cretor_with_deprecated_field_raise_exception
-    assert_raise(DeprecatedAttributeError) { Person.create(:long_name => 'should not see this')    }
+    assert_raise(Deprecatable::DeprecatedAttributeError) { Person.create(:long_name => 'should not see this')    }
   end
 
   def test_read_deprecated_raise_exception
-    assert_raise(DeprecatedAttributeError) { @bob.long_name }
+    assert_raise(Deprecatable::DeprecatedAttributeError) { @bob.long_name }
   end
 
   def test_write_deprecated_raise_exception
-    assert_raise(DeprecatedAttributeError) { @bob.long_name = 'Bon' }
+    assert_raise(Deprecatable::DeprecatedAttributeError) { @bob.long_name = 'Bon' }
   end
 
+  def test_write_dreprecated_with_continuation
+    v = 'failure'
+    begin
+      @bob.long_name = 'bobob'
+      v = @bob.long_name
+    rescue Deprecatable::DeprecatedAttributeError => e
+      e.continue
+    end
+    assert_equal 'bobob', v
+  end
 
   def test_hash_exclude_deprecated_attributes
     h = @bob.serializable_hash
@@ -50,18 +60,18 @@ class TestAcread < Test::Unit::TestCase
   def test_non_deprecated_class_can_read_all_attributes
     assert @james.long_name.is_a? String
   end
- 
+
   def test_non_deprecated_class_can_write_all_attributes
     s = 'james the short'
     @james.long_name = s
     assert @james.long_name == s
   end
-  
+
   def test_non_deprecated_class_columns_output_all_attributes
     h = @james.send(:columns).map(&:name)
     assert h.include? 'long_name'
   end
-  
+
   def test_non_deprecated_class_hash_output_all_attributes
     h = @james.serializable_hash
     assert h.keys.include? 'long_name'

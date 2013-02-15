@@ -2,7 +2,8 @@ require 'active_record'
 require 'acread/deprecatable'
 
 class ActiveRecord::Base
-  extend Deprecatable
+
+  include Deprecatable
 
   def columns
     self.class.columns.reject { |c| (self.class.deprecated_attributes || []).include? c.name.to_s}
