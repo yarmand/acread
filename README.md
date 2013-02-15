@@ -29,21 +29,24 @@ end
 ## find attribute usage
 you can catch the `DeprecatedAttributeError` exception and for example put a backtrace in a specific logger.
 
+The DeprecatedAttributeError is a ContinuableException, this mean you can catch it and continue normal ActiveRecord behavior.
+
 ```ruby
 class ApplicationController
 	rescue_from DeprecatedAttributeError, :with => :log_deprecate
-	
+
 	private
-	
+
 	def deprecated_logger
 		@@deprecated_logger ||= Logger.new("#{Rails.root}/log/deprecated_calls.log")
 	end
-	
+
 	def log_deprecated e
 		deprecated_logger.error(e.stacktrace.join("\n"))
+    e.continue
 	end
 end
-```    
+```
 
 ## zero downtime migration
 When you are done with cleaning your code from any usage of deprecated attributes, you can prepare a migration including some drop_columns.
@@ -62,7 +65,7 @@ class RemoveLongNames < ActiveRecord::Migration
   end
 end
 ```
-    
+
 Then you can safely follow the steps :
 
 
