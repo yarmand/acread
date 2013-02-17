@@ -9,6 +9,8 @@ When you deprecate an attribute, acread can helps you in 3 ways :
 1. ignore this atribute when serializing the object through to_json, to_xml ...
 1. helps your zero downtime migration by ignoring the attribute for objects already in memory when saving to database.
 
+Have a look at this [London Ruby Group Lightning talk](http://skillsmatter.com/podcast/ajax-ria/hulk-smash) for a quick description of that 3 steps.
+
 # Usage
 
 ## Installation
@@ -29,7 +31,9 @@ end
 ## find attribute usage
 you can catch the `DeprecatedAttributeError` exception and for example put a backtrace in a specific logger.
 
-The DeprecatedAttributeError is a ContinuableException, this mean you can catch it and continue normal ActiveRecord behavior.
+If you are using ruby > 1.9, Acread use the gem continuable (https://github.com/cmaruz/continuable).
+The DeprecatedAttributeError can then be continued, this mean you can catch it and continue normal ActiveRecord behavior.
+You're code hunting can then be done without any effect on your datas by simply catching the exception, logging and continuing.
 
 ```ruby
 class ApplicationController
