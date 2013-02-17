@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "acread"
-  s.version = "0.5.3"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["yann ARMAND", "Nick Campbell"]
-  s.date = "2012-12-06"
+  s.date = "2013-02-17"
   s.description = "An ActiveRecord Extension to deprecate attributes"
   s.email = "yann@harakys.com"
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "acread.gemspec",
     "lib/acread.rb",
     "lib/acread/active_record_ext.rb",
+    "lib/acread/continuable_raise.rb",
     "lib/acread/deprecatable.rb",
     "test/helper.rb",
     "test/test_acread.rb"
@@ -41,6 +42,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, [">= 3.0"])
+      s.add_runtime_dependency(%q<continuable>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 3.12"])
       s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
@@ -48,6 +50,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.0"])
+      s.add_dependency(%q<continuable>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 3.12"])
       s.add_dependency(%q<bundler>, [">= 1.0.0"])
@@ -56,6 +59,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<rails>, [">= 3.0"])
+    s.add_dependency(%q<continuable>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 3.12"])
     s.add_dependency(%q<bundler>, [">= 1.0.0"])
