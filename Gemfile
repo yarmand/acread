@@ -3,6 +3,10 @@ source 'http://rubygems.org/'
 # gem dependencies
 gem 'rails', '>= 3.0'
 
+if Gem::Version.new(String.new(RUBY_VERSION)) > Gem::Version.new('1.9')
+  gem 'continuable', :path => '~/Projects/continuable'
+end
+
 # dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do

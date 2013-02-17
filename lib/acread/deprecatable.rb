@@ -1,10 +1,9 @@
-require 'acread/continuable_raise'
+require 'continuable' if Acread::run_19?
 
 module Deprecatable
 
   def self.included(base)
     base.extend ClassMethods
-    base.send(:include, ContinuableRaise)
   end
 
   ACCESSORS = [ '', '=', '_before_type_cast', '?', '_changed?', '_change', '_will_change!', '_was']
@@ -31,13 +30,14 @@ module Deprecatable
       accessors.each do |term|
         define_method("#{attr}#{term}") do |*args|
           raise DeprecatedAttributeError, msg
-          (args.length >0 ? super(args) : super()).first
+          (args.length >0 ? super(args) : super()).first # call ActiveRecord behavior if previous exception have been continued
         end
       end
     end
   end
 
-  class DeprecatedAttributeError < ContinuableRaise::ContinuableException
+  class DeprecatedAttributeError < Exception
+    include Continuable if Acread::run_19?
   end
 
 end

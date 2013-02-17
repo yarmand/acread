@@ -37,6 +37,7 @@ class TestAcread < Test::Unit::TestCase
   end
 
   def test_write_dreprecated_with_continuation
+    return true unless Acread::run_19?
     v = 'failure'
     begin
       @bob.long_name = 'bobob'
