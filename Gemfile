@@ -4,7 +4,8 @@ source 'http://rubygems.org/'
 gem 'rails', '>= 3.0'
 
 if Gem::Version.new(String.new(RUBY_VERSION)) > Gem::Version.new('1.9')
-  gem 'continuable', :path => '~/Projects/continuable'
+  # gem 'continuable', :path => '~/Projects/continuable'
+  gem 'continuable'
 end
 
 # dependencies to develop your gem here.
