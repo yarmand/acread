@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["yann ARMAND", "Nick Campbell", "Mario Caropreso"]
-  s.date = "2013-02-17"
+  s.authors = ["yann ARMAND", "Nick Campbell"]
+  s.date = "2013-02-18"
   s.description = "An ActiveRecord Extension to deprecate attributes"
   s.email = "yann@harakys.com"
   s.extra_rdoc_files = [
@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
     "acread.gemspec",
     "lib/acread.rb",
     "lib/acread/active_record_ext.rb",
-    "lib/acread/continuable_raise.rb",
     "lib/acread/deprecatable.rb",
     "test/helper.rb",
     "test/test_acread.rb"
