@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{An ActiveRecord Extension to deprecate attributes}
   gem.description = %Q{An ActiveRecord Extension to deprecate attributes}
   gem.email = "yann@harakys.com"
-  gem.authors = ["yann ARMAND", 'Nick Campbell']
+  gem.authors = ["yann ARMAND", 'Nick Campbell', 'Mario Caropreso']
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
