@@ -46,7 +46,7 @@ class ApplicationController
 	end
 
 	def log_deprecated e
-		deprecated_logger.error(e.stacktrace.join("\n"))
+		deprecated_logger.error(caller.join("\n"))
     e.continue
 	end
 end
